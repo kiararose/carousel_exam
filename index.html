@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carousel</title>
+    </head>
+    <body>
+        <h1>My Carousel</h1>
+        <div class="carousel">
+            <img class="carousel__image" alt="First" src="https://via.placeholder.com/350x200.png?text=1" />
+            <img class="carousel__image" alt="Second" src="https://via.placeholder.com/350x200.png?text=2" />
+            <img class="carousel__image" alt="Third" src="https://via.placeholder.com/350x200.png?text=3" />
+            <img class="carousel__image" alt="Fourth" src="https://via.placeholder.com/350x200.png?text=4" />
+            <img class="carousel__image" alt="Fifth" src="https://via.placeholder.com/350x200.png?text=5" />
+        </div>
+        <script>
+            var index = 0;
+            carousel();
+            
+            function carousel() {
+                let i;
+                let images = document.getElementsByClassName("carousel__image");
+
+                // Hides all images 
+                for(i = 0; i < images.length; i++) {
+                    images[i].style.display = "none";
+                }
+
+                index++;
+
+                // Goes back to first image after displaying the last
+                if(index > images.length) {
+                    index = 1;
+                }
+
+                // Displays image automatically in the carousell
+                images[index-1].style.display = "block";
+                setTimeout(carousel, 1000);
+            }
+        </script>
+    </body>
+</html>
